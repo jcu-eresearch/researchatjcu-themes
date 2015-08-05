@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix {
+  display: block;
+  height: 1%;
+
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    content: ' ';
+    clear: both;
+    height: 0;
+    width: 0;
+  }
+}
+
+.clear {
+  font-size: 100%;
+}
+
+// Search bar
+#searchGadget {
+  width: 10em;
+}
+
+// Portal Column Rules
+#portal-columns {
+  padding-top: 1.5em;
+}
+
+#portal-column-content {}
+
+// Content rules
+#content-core {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#documentEditable {
+  display: block;
+  padding-right: 15px;
+  width: 786px;
+}
+
+// Fixes
+.mceToolbar {
+  white-space: normal !important;
+}
+
+.multipleSelectionWidget dt {
+  display: block !important;
+}
+
+#parent-fieldname-text.plain {
+  padding-bottom: 0;
+}
+
+.image-inline {
+  float: none;
+  margin: 0;
+  max-width: 100%;
+  vertical-align: text-bottom;
+}
+
+
+// Responsive code
+.embed-responsive {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+
+  .embed-responsive-item, iframe, embed, object, video {
+    border: 0 none;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &.embed-responsive-16by9 {
+    padding-bottom: 56.25%;
+  }
+
+  &.embed-responsive-4by3 {
+    padding-bottom: 75%;
+  }
+}
+
+// Responsive design
+@media screen and (max-width: 480px) {
+  #portal-logo {
+    font-size: 70%;
+    margin: 0;
+    position: relative;
+    right: inherit;
+  }
+
+  #portal-header img {
+    max-width: 30%;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 480px) {
+  #portal-logo {
+    font-size: 80%;
+    max-width: 45%;
+  }
+}
+

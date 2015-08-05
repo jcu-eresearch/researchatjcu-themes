@@ -1,0 +1,14 @@
+@charset 'utf-8';
+
+@import 'generic';
+@import 'base-theme';
+
+.section-nccarf {
+  // Variable definitions here go here. OMGPWNIES!
+  $body-background-colour: #e8e8c8;
+  $primary-colour: #5b794e;
+  $header-background: $primary-colour no-repeat;
+  $highlight-colour: #6f935f;
+  $link-color: #3377a6;
+  @import 'base-theme';
+}

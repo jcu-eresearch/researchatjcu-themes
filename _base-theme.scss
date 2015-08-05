@@ -1,46 +1,25 @@
-@charset 'utf-8';
+$body-background-colour: #ededed !default;
+$primary-font: "Helvetica Neue", "Trebuchet MS", Helvetica, Arial, sans-serif !default;
+$primary-colour: #275543 !default;
+$primary-colour-inverse: #fff !default;
+$primary-background: #fff !default;
+$primary-background-inverse: $primary-colour !default;
+$secondary-font: "Helvetica Neue", "Trebuchet MS", Helvetica, Arial, sans-serif !default;
+$text-colour: #000 !default;
+$highlight-colour: #779c89 !default;
+$highlight-colour-inverse: #fff !default;
+$muted-colour: #ccc !default;
+$header-background: url('/grad_green.png') repeat-x !default;
+$header-background-inverse: #fff !default;
+$link-colour: #3377a6 !default;
+$link-visited-colour: #339 !default;
+$personaltools-background: #75ad0a !default;
 
-$body-background-colour: #ededed;
-$primary-font: "Trebuchet MS", Helvetica, sans-serif;
-$primary-colour: #275543;
-$primary-colour-inverse: #fff;
-$primary-background: #fff;
-$secondary-font: "Trebuchet MS", Helvetica, sans-serif;
-$text-colour: #000;
-$highlight-colour: #a6bbb0;
-$highlight-colour-inverse: #fff;
-$muted-colour: #ccc;
-$header-background: url('/grad_green.png') repeat-x;
-
-* {
-  margin: 0;
-  padding: 0;
-}
 
 body {
   background-color: $body-background-colour;
   font-family: $primary-font;
   height: 100%;
-}
-
-.clearfix {
-  display: block;
-  height: 1%;
-
-  &:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    line-height: 0;
-    content: ' ';
-    clear: both;
-    height: 0;
-    width: 0;
-  }
-}
-
-.clear {
-  font-size: 100%;
 }
 
 // Header rules
@@ -75,12 +54,16 @@ h1 {
   font-family: $secondary-font;
   font-size: 1.8em;
   font-weight: normal;
+  letter-spacing: -.06em;
   margin-bottom: .5em;
   padding-top: .5em;
+  @at-root #portal-logo & {
+    color: $header-background-inverse;
+  }
 }
 
 h2 {
-  color: lighten($primary-colour, 5%);
+  color: lighten($primary-colour, 10%);
   font-family: $secondary-font;
   font-size: 1.6em;
   font-weight: normal;
@@ -89,18 +72,20 @@ h2 {
 }
 
 h3 {
-  color: lighten($primary-colour, 10%);
+  color: lighten($primary-colour, 20%);
   font-family: $primary-font;
-  font-size: 1em;
   font-weight: bold;
-  margin-bottom: 0.5em;
+}
+
+h4 {
+  color: lighten($primary-colour, 30%);
+  font-family: $primary-font;
+  font-weight: bold;
 }
 
 h5 {
-  color: lighten($primary-colour, 15%);
+  color: lighten($primary-colour, 40%);
   font-family: $primary-font;
-  margin: 0;
-  padding: 0;
 }
 
 p {
@@ -108,13 +93,13 @@ p {
 }
 
 a {
+  color: $link-colour;
   &:link, &:visited {
-    color: #339;
+    color: $link-visited-colour;
   }
 }
 
 // Content Wrapper
-
 #visual-portal-wrapper {
   overflow: auto;
   max-width: 1200px;
@@ -142,13 +127,13 @@ a {
   z-index: 3;
 
   #anon-personalbar a {
-    color: $primary--inverse;
+    color: $primary-background-inverse;
     float: left;
     margin: 0 0.5em;
   }
   dd {
     padding-bottom: 0.5em;
-    background-color: #75AD0A;
+    background: $personaltools-background;
   }
 }
 
@@ -184,10 +169,6 @@ dl.actionMenu {
   border: 1px $text-colour solid;
 }
 
-#searchGadget {
-  width: 10em;
-}
-
 .searchSection {
   color: $primary-colour-inverse;
 }
@@ -202,7 +183,7 @@ dl.actionMenu {
 #portal-globalnav {
   background: $highlight-colour;
   clear: both;
-  font-size: 85%;
+  font-size: 0.9em;
   margin: 0;
 
   li {
@@ -211,7 +192,7 @@ dl.actionMenu {
       background: none;
       border-right: 0;
       clear: both;
-      color: $text-colour;
+      color: $highlight-colour-inverse;
       display: inline-block;
       font-size: 80%;
       font-weight: normal;
@@ -226,12 +207,13 @@ dl.actionMenu {
   .selected a {
     background: $primary-background;
     clear: both;
-    color: $highlight-colour;
+    color: $primary-background-inverse;
     font-size: 80%;
+  }
 
-    &:hover {
-      color: $highlight-colour;
-    }
+  .selected a:hover {
+    color: $primary-background-inverse;
+    background-color: $primary-background;
   }
 }
 
@@ -248,7 +230,7 @@ table.listing {
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
     background: $highlight-colour;
-    color: $highlight-inverse-colour;
+    color: $highlight-colour-inverse;
     text-align: left;
   }
   tbody tr.odd td {
@@ -269,18 +251,13 @@ table.listing {
     text-align: left;
   }
 
-  h1 {
-    color: $primary-colour;
-    letter-spacing: normal;
-    padding-bottom: 5px;
-    &.documentFirstHeading {
-      font-size: 2em;
-      margin-bottom: .5em;
-      margin-top: 0;
-    }
+  .documentFirstHeading {
+    font-size: 2em;
   }
 
   a {
+    color: $link-colour;
+
     &:hover {
       color: $highlight-colour !important;
     }
@@ -299,41 +276,13 @@ table.listing {
   .documentDescription {
     margin: 0.5em 0;
   }
-
-}
-
-#content-core {
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 // Portal Column Rules
-#portal-columns {
-  padding-top: 1.5em;
-}
-
-#portal-column-content {}
-
-#portal-column-one {
+#portal-column-one,
+#portal-column-two {
   background: $primary-background;
   overflow: visible;
-}
-
-#portal-column-two {
-  overflow: visible;
-  img {
-    padding-bottom: 10px;
-  }
-}
-
-dt.portletHeader {
-  color: $primary-colour;
-  font-size: 1.5em;
-  font-weight: normal;
-}
-
-.blockedPortlet .portletBlockedMessage {
-  color: $muted-colour;
 }
 
 dl.portlet {
@@ -360,8 +309,10 @@ dl.portlet {
   }
 }
 
-#description {
-  margin: .5em 0;
+dt.portletHeader {
+  color: $primary-colour;
+  font-size: 1.5em;
+  font-weight: normal;
 }
 
 dl.portlet {
@@ -376,10 +327,8 @@ dl.portlet {
   }
 }
 
-#documentEditable {
-  display: block;
-  padding-right: 15px;
-  width: 786px;
+.blockedPortlet .portletBlockedMessage {
+  color: $muted-colour;
 }
 
 .tileFooter {
@@ -397,26 +346,6 @@ dl.portlet {
 
 #portal-footer {
   background-color: $primary-background;
-}
-
-// Fixes
-.mceToolbar {
-  white-space: normal !important;
-}
-
-.multipleSelectionWidget dt {
-  display: block !important;
-}
-
-#parent-fieldname-text.plain {
-  padding-bottom: 0;
-}
-
-.image-inline {
-  float: none;
-  margin: 0;
-  max-width: 100%;
-  vertical-align: text-bottom;
 }
 
 // Custom styles
@@ -447,98 +376,3 @@ dl.TwitterWidgetPortlet dd {
   }
 }
 
-// Responsive design
-@media screen and (max-width: 480px) {
-  #portal-logo {
-    font-size: 70%;
-    margin: 0;
-    position: relative;
-    right: inherit;
-  }
-
-  #portal-header img {
-    max-width: 30%;
-  }
-}
-
-@media screen and (max-width: 768px) and (min-width: 480px) {
-  #portal-logo {
-    font-size: 80%;
-    max-width: 45%;
-  }
-}
-
-// Responsive code
-.embed-responsive {
-  display: block;
-  height: 0;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-
-  .embed-responsive-item, iframe, embed, object, video {
-    border: 0 none;
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  &.embed-responsive-16by9 {
-    padding-bottom: 56.25%;
-  }
-
-  &.embed-responsive-4by3 {
-    padding-bottom: 75%;
-  }
-}
-
-// Site customisations
-.site-nccarf {
-  h2 {
-    color: #C33;
-  }
-
-  #portal-header {
-    background: #F00;
-  }
-
-  #portal-searchbox {
-    background-color: #990;
-    border-bottom: 2px solid #660;
-  }
-
-  #portal-globalnav {
-    background-color: #c33;
-
-    li a {
-      color: white;
-    }
-
-    a:hover, .selected a {
-      background-color: white;
-      color: #900;
-    }
-
-    .selected a:hover {
-      background-color: #990;
-      color: #660;
-    }
-  }
-
-  #content {
-    h1, h2 {
-      color: #990;
-    }
-  }
-
-  #content a:hover {
-    color: #660 !important;
-  }
-
-  dl.portlet dt {
-    background: #cc3;
-  }
-}
