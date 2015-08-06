@@ -23,6 +23,32 @@
   font-size: 100%;
 }
 
+// Header
+#portal-header {
+  background-size: contain;
+  position: relative;
+  z-index: 2;
+  img {
+    float: left;
+    max-width: 250px;
+  }
+}
+
+#portal-logo {
+  text-align: right;
+  margin: 2em 1em;
+  right: 1em;
+  position: absolute;
+  max-width: 70%;
+  padding-top: .5em;
+  line-height: .9em;
+}
+
+.section-home #portal-breadcrumbs {
+  display: none;
+}
+
+
 // Search bar
 #searchGadget {
   width: 10em;
