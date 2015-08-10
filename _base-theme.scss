@@ -13,10 +13,9 @@ $header-background: url('/grad_green.png') repeat-x !default;
 $header-background-inverse: #fff !default;
 $link-colour: #3377a6 !default;
 $link-visited-colour: #339 !default;
-$personaltools-background: #75ad0a !default;
 
-
-body {
+$parent-selector: null !default;
+@at-root body#{$parent-selector} {
   background-color: $body-background-colour;
   font-family: $primary-font;
   height: 100%;
@@ -38,6 +37,7 @@ h1 {
   padding-top: .5em;
   @at-root #portal-logo & {
     color: $header-background-inverse;
+    line-height: 0.9em;
   }
 }
 
@@ -99,25 +99,27 @@ a {
   background: none transparent;
   float: right;
   font-size: 80%;
-  padding: 0.25em 0.5em;
+  padding: .25em .5em;
   position: relative;
   right: 0;
   top: 0;
   z-index: 3;
 
   #anon-personalbar a {
-    color: $primary-background-inverse;
+    color: $header-background-inverse;
     float: left;
-    margin: 0 0.5em;
+    margin: 0 .5em;
   }
+
   dd {
-    padding-bottom: 0.5em;
-    background: $personaltools-background;
+    background: lighten($primary-colour, 20%);
+    padding-bottom: .5em;
   }
 }
 
 dl.actionMenu {
-  a, div {
+  a,
+  div {
     color: $primary-colour-inverse;
   }
 }
@@ -265,24 +267,34 @@ table.listing {
 }
 
 dl.portlet {
-  a:hover {
-    color: $highlight-colour !important;
+  background-color: $body-background-colour;
+  font-size: 70%;
+
+  a {
+    border: 0 none;
+
+    &:hover {
+      color: $highlight-colour !important;
+    }
   }
+
   dt {
     background-color: $primary-colour;
-    line-height: normal;
-    padding: .42em 1em;
     color: $primary-colour-inverse;
     font-family: $secondary-font;
+    line-height: normal;
+    padding: .42em 1em;
 
+    // Hover issues; colour matches the green
     a {
       &:link,
-      &:visited,
-      &:hover {
+      &:visited {
         color: $primary-colour-inverse;
-        display: block;
         font-family: $secondary-font;
-        text-decoration: none;
+      }
+
+      &:hover {
+        color: darken($primary-colour-inverse, 10%) !important;
       }
     }
   }
@@ -292,18 +304,6 @@ dt.portletHeader {
   color: $primary-colour;
   font-size: 1.5em;
   font-weight: normal;
-}
-
-dl.portlet {
-  background-color: $body-background-colour;
-  font-size: 70%;
-
-  a {
-    border: 0 none;
-    &:visited {
-      text-decoration: none;
-    }
-  }
 }
 
 .blockedPortlet .portletBlockedMessage {

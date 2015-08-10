@@ -1,15 +1,182 @@
 @charset 'utf-8';
 
+$body-background-colour: #e8e8e8;
+$primary-font: Verdana, sans-serif;
+$primary-colour: #9C6;
+$primary-background: #fff;
+$primary-background-inverse: #75ad0a;
+$secondary-font: Georgia, "Times New Roman", Times, serif;
+$text-colour: #000;
+$highlight-colour: #9C6;
+$highlight-colour-inverse: #000;
+$header-background: url('/grad_green.png') repeat-x;
+$link-colour: #205c90;
+
 @import 'generic';
 @import 'base-theme';
 
-// To be configured for standard Research@JCU
-.section-todo {
-  // Variable definitions here go here. OMGPWNIES!
-  $body-background-colour: #e8e8c8;
-  $primary-colour: #5b794e;
-  $header-background: $primary-colour no-repeat;
-  $highlight-colour: #6f935f;
-  $link-color: #3377a6;
+// Research@JCU red styling
+.site-whocc,
+.site-bmdt,
+.site-qrcpvd,
+.site-aithm {
+  $primary-colour: #c33;
+  $highlight-colour: #c33;
+  $primary-background-inverse: #900;
+  $highlight-colour-inverse: #fff;
+  $header-background: url('/grad_red.png') repeat-x;
+  $parent-selector: &;
   @import 'base-theme';
 }
+
+// Research@JCU blue styling
+.site-itrh-apb,
+.site-macro,
+.site-cstfa,
+.site-cgc,
+.site-qtaas,
+.site-tropwater {
+  $primary-colour: #09f;
+  $highlight-colour: #09f;
+  $highlight-colour-inverse: #000;
+  $primary-background-inverse: #06c;
+  $header-background: url('/grad_blue.png') repeat-x;
+  $parent-selector: &;
+  @import 'base-theme';
+}
+
+// Research@JCU orange styling
+.site-cnmr,
+.site-ci,
+.site-lcrc {
+  $primary-colour: #d74303;
+  $highlight-colour: #d74303;
+  $highlight-colour-inverse: #fff;
+  $primary-background-inverse: #d74303;
+  $header-background: url('/grad_orange.png') repeat-x;
+  $parent-selector: &;
+  @import 'base-theme';
+}
+
+// Specific site customisations
+.site-cstfa div.width-3\:4,
+.site-tropwater div.width-3\:4 {
+  width: 77.3%
+}
+
+.site-cstfa div.position-3\:4,
+.site-tropwater div.position-3\:4 {
+  margin-left: -19.325%;
+}
+
+.site-cstfa div.width-1\:4,
+.site-tropwater div.width-1\:4 {
+  width: 18.2%
+}
+
+.site-ctbcc {
+  #portal-breadcrumbs {
+    display: none;
+  }
+
+  &.section-home #content h1.documentFirstHeading {
+    display: none;
+  }
+
+  &.section-home #content {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.site-cnmr {
+  &.section-home {
+    h1.documentFirstHeading {
+      display: none;
+    }
+
+    td {
+      padding-left: .5em;
+      padding-right: .5em;
+    }
+  }
+}
+
+.site-tropwater {
+  a img {
+    margin-bottom: .5em;
+    margin-top: .5em;
+  }
+}
+
+// Global customisations
+#viewlet-social-like {
+  margin-top: 5px;
+  padding-left: 10px;
+}
+
+// Fixes
+
+// Easyslider
+#slider {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#slider,
+#slider-container,
+li.slide {
+  border: 0 !important;
+  max-width: 100% !important;
+}
+
+#prevBtn,
+#nextBtn {
+  display: none !important;
+}
+
+#slider-container {
+  position: relative;
+}
+
+#easySlider-goToButtons {
+  bottom: 10%;
+  line-height: normal !important;
+  position: absolute !important;
+  right: 0;
+  top: inherit !important;
+}
+
+#slides-view .slider-container,
+#slides-view #slider-container,
+#slides-view #slider,
+#slides-view #slider li.slide {
+  max-height: none !important;
+
+}
+
+dl.portletEasyslider dd.portletItem {
+  padding: 1em 0;
+}
+
+.portletEasyslider .slider li.slide.crossfade,
+.portletEasyslider #slider li.slide.crossfade {
+  background-color: $body-background-colour !important;
+}
+
+// Deprecated
+/*
+.intab_content{
+width:500px;
+float:left;
+margin-left:50px;
+border-bottom:#959c5b 1px dotted;
+margin-top:10px;
+}
+
+.intab_heading {
+padding-left:15px;
+width:700px;
+padding-top:15px;
+}
+*/

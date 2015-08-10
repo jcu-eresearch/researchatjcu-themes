@@ -40,7 +40,7 @@
   right: 1em;
   position: absolute;
   max-width: 70%;
-  padding-top: .5em;
+  padding: .5em 0 0;
   line-height: .9em;
 }
 
@@ -56,7 +56,7 @@
 
 // Portal Column Rules
 #portal-columns {
-  padding-top: 1.5em;
+  margin-top: 1em;
 }
 
 #portal-column-content {}
@@ -84,6 +84,14 @@
 
 #parent-fieldname-text.plain {
   padding-bottom: 0;
+}
+
+dl.captioned {
+  margin-right: 2em;
+}
+
+#content-core .captioned dd {
+  margin: 0;
 }
 
 .image-inline {
