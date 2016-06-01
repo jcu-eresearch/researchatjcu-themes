@@ -16,6 +16,7 @@ $link-colour: #205c90;
 @import 'base-theme';
 
 // Research@JCU red styling
+.site-nursing,
 .site-whocc,
 .site-bmdt,
 .site-qrcpvd,
@@ -30,6 +31,7 @@ $link-colour: #205c90;
 }
 
 // Research@JCU blue styling
+.site-tropicalmedicine,
 .site-itrh-apb,
 .site-macro,
 .site-cstfa,
@@ -106,6 +108,18 @@ $link-colour: #205c90;
   a img {
     margin-bottom: .5em;
     margin-top: .5em;
+  }
+}
+
+.site-tropicalmedicine {
+  #portal-logo h1 {
+    font-size: 1.5em;
+  }
+
+  @media screen and (max-width: 768px) and (min-width: 480px) {
+    #portal-logo {
+      font-size: 70%;
+    }
   }
 }
 
